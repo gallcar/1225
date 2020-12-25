@@ -841,7 +841,7 @@ static void ui_draw_vision_maxspeed(UIState *s) {
   viz_maxspeed_xo = 0;
 
   // Draw Background
-  ui_draw_rect(s->vg, viz_maxspeed_x, viz_maxspeed_y, viz_maxspeed_w, viz_maxspeed_h, COLOR_BLACK_ALPHA(100), 30);
+  ui_draw_rect(s->vg, viz_maxspeed_x, viz_maxspeed_y, viz_maxspeed_w, viz_maxspeed_h, COLOR_BLACK_ALPHA(0), 30);
 
   // Draw Border
   NVGcolor color = COLOR_WHITE_ALPHA(100);
