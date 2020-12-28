@@ -16,8 +16,9 @@ MAX_SET_SPEED = V_CRUISE_MAX
 LIMIT_ACCEL = 10.
 LIMIT_DECEL = 18.
 
-ALIVE_COUNT = 8
-WAIT_COUNT = [10, 12, 14, 16]
+ALIVE_COUNT = [6, 8]
+WAIT_COUNT = [12, 13, 14, 15, 16]
+AliveIndex = 0
 WaitIndex = 0
 
 EventName = car.CarEvent.EventName
@@ -35,12 +36,12 @@ class CruiseState:
 class SccSmoother:
 
   @staticmethod
-  def get_wait_count():
-    global WaitIndex
-    count = WAIT_COUNT[WaitIndex]
-    WaitIndex += 1
-    if WaitIndex >= len(WAIT_COUNT):
-      WaitIndex = 0
+  def get_alive_count():
+    global AliveIndex
+    count = ALIVE_COUNT[AliveIndex]
+    AliveIndex += 1
+    if AliveIndex >= len(ALIVE_COUNT):
+      AliveIndex = 0
     return count
 
   def __init__(self, accel_gain, decel_gain, curvature_gain):
